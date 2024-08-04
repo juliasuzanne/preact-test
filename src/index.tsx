@@ -5,10 +5,9 @@ import { NotFound } from './pages/_404.js';
 import { Profile } from './pages/Profile/index.js';
 import {createContext} from 'preact';
 import {useContext} from 'preact/hooks';
-import createAppState from './state';
+import createAppState from './state.js';
+
 import './style.css';
-import Restaurant from './TS/Restaurant';
-import Mixtape from './pages/React/Mixtape';
 
 export const AppState = createContext(createAppState); 
 
@@ -21,10 +20,8 @@ export function App() {
 			<main>
 				<Router>
 					<Route path="/" component={Home} />
-					<Route path='/restaurants' component={Restaurant} />
 					<Route path='/profile' component={Profile} />
 					<Route default component={NotFound} />
-					<Route path='/mixtape' component={Mixtape} />
 
 				</Router>
 			</main>
