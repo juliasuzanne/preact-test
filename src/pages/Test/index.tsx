@@ -1,6 +1,7 @@
 import { signal } from '@preact/signals';
 import { useContext } from 'preact/hooks';
 import { AppState } from '../../index';
+import MyCounter from './counter';
 
 export function Test(){
 
@@ -8,6 +9,7 @@ export function Test(){
 
   return(
     <div>
+      <MyCounter />
       <p>
         Test {testFunction(3)}
       </p>
