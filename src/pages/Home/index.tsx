@@ -11,6 +11,7 @@ export function Home() {
 			</a>
 			<h1>Get Started building Vite-powered Preact Apps </h1>
 			<Test />
+			<a href="/restaurants">Restaurant</a>
 			<section>
 				<Resource
 					title="Learn Preact"

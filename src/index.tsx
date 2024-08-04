@@ -5,9 +5,9 @@ import { NotFound } from './pages/_404.js';
 import { Profile } from './pages/Profile/index.js';
 import {createContext} from 'preact';
 import {useContext} from 'preact/hooks';
-import createAppState from './state.js';
-
+import createAppState from './state';
 import './style.css';
+import Restaurant from './TS/Restaurant.js';
 
 export const AppState = createContext(createAppState); 
 
@@ -20,8 +20,10 @@ export function App() {
 			<main>
 				<Router>
 					<Route path="/" component={Home} />
+					<Route path='/restaurants' component={Restaurant} />
 					<Route path='/profile' component={Profile} />
 					<Route default component={NotFound} />
+
 				</Router>
 			</main>
 		</LocationProvider>
