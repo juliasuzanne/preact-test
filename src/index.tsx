@@ -4,8 +4,12 @@ import { Home } from './pages/Home/index.js';
 import { NotFound } from './pages/_404.js';
 import { Profile } from './pages/Profile/index.js';
 import {createContext} from 'preact';
+import Restaurant from './pages/TS/Restaurant';
+import Mixtape from './pages/React/Mixtape.js';
 import {useContext} from 'preact/hooks';
 import createAppState from './state.js';
+import render from 'preact-render-to-string'
+
 
 import './style.css';
 
@@ -22,7 +26,8 @@ export function App() {
 					<Route path="/" component={Home} />
 					<Route path='/profile' component={Profile} />
 					<Route default component={NotFound} />
-
+					<Route default component={Mixtape} />
+					<Route path='/restaurants' component={Restaurant} />
 				</Router>
 			</main>
 		</LocationProvider>
