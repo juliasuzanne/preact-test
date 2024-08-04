@@ -9,6 +9,7 @@ import Mixtape from './pages/React/Mixtape.js';
 import {useContext} from 'preact/hooks';
 import createAppState from './state.js';
 import render from 'preact-render-to-string'
+import Riddler from './pages/React/Riddler.js';
 
 
 import './style.css';
@@ -25,8 +26,8 @@ export function App() {
 				<Router>
 					<Route path="/" component={Home} />
 					<Route path='/profile' component={Profile} />
+					<Route path ='/riddles' component={Riddler} />
 					<Route default component={NotFound} />
-					<Route default component={Mixtape} />
 					<Route path='/restaurants' component={Restaurant} />
 				</Router>
 			</main>
