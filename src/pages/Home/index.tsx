@@ -15,7 +15,13 @@ export function Home() {
 			<a href ="/restaurants">Restaurants</a>
 			<br></br>
 			<a href="/mixtape">Mixtape</a>
+			<br>
+			</br>
 			<a href="/riddles">Riddles</a>
+			<br />
+			<a href = "/crash">Crash me</a>
+			<br />
+			<a href = "/memory">Memory Game</a>
 			<section>
 				<Resource
 					title="Learn Preact"

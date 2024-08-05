@@ -7,9 +7,9 @@ import { renderToStringAsync } from 'preact-render-to-string';
 export default function Mixtape(){
   const posts = useSignal([]);
   const titles = useSignal([])
-  const handleIndexPosts = async() => {
+  const handleIndexPosts = ()=> {
     console.log("handleIndexPosts");
-    await axios.get(`https://riyl.fly.dev/infos.json`).then((response) => {
+      axios.get(`https://riyl.fly.dev/infos.json`).then((response) => {
       console.log(response.data);
       posts.value = (response.data);
       console.log(posts.value[0].title);
@@ -28,7 +28,7 @@ export default function Mixtape(){
       <h1>
         Media Consumption
         </h1>
-      {`${posts.value.length}`}
+      {/* {`${posts.value.length}`}
       {
         posts.value.map((post)=>(
           <div>
@@ -39,9 +39,9 @@ export default function Mixtape(){
               <p>{post.favoritepart}</p>
         </div>))
 
-    }
+    } */}
 
-      {/* {posts.value.length !== 0 ?
+      {posts.value.length !== 0 ?
         posts.value.map((post)=>(
           <div>
               <h2>{post.title}</h2>
@@ -56,7 +56,7 @@ export default function Mixtape(){
         :
         <p>loading...</p>  
 
-    } */}
+    }
 
       {/* {posts.value.length !== 0 ?
           <p>{posts.value[0].title}</p>:
