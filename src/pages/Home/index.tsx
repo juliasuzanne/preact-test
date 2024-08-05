@@ -2,8 +2,13 @@ import preactLogo from '../../assets/preact.svg';
 import { h } from 'preact';
 import './style.css';
 import {Test} from '../Test/index'
+import { PointState } from '../..';
+import { useContext } from 'preact/hooks';
 
 export function Home() {
+
+	const {points} = useContext(PointState);
+
 	return (
 		<div class="home">
 			<a href="https://preactjs.com" target="_blank">
@@ -12,6 +17,7 @@ export function Home() {
 
 			<h1>Get Started building Vite-powered Preact Apps </h1>
 			<Test />
+			<h1>Points: {points}</h1>
 			<a href ="/restaurants">Restaurants</a>
 			<br></br>
 			<a href="/mixtape">Mixtape</a>

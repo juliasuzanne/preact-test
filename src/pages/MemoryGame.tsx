@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useSignal } from "@preact/signals";
-import { useMemo, useState, useEffect } from "preact/hooks";
+import { useMemo, useState, useEffect, useContext } from "preact/hooks";
 import { useErrorBoundary } from "preact/hooks";
 import ErrorBoundary from "./ErrorBoundary";
 import { Card } from "./Card";
+import { PointState } from "..";
 
 export default function MemoryGame(){
   //get the array of images from axios X
@@ -13,6 +14,7 @@ export default function MemoryGame(){
   //click to reveal card game, keep track of state (0, 1 or 2 cards revealed)
   //if 2 cards revealed, cards stay turned up and they are a match, match ++
   //if not a match, flip back over and reset state
+  const {points, addPoints} = useContext(PointState);
   const images = useSignal([]);
   const numMatches = useSignal(4);
   const gameMatches = useSignal(4);
@@ -106,6 +108,7 @@ export default function MemoryGame(){
 
   return(
     <div>
+      <h1> Points: {points}</h1>
       <form onSubmit={handleChangeGame}>
         <input value={gameMatches.value} onChange={(e)=> numMatches.value = parseInt((e.target as HTMLTextAreaElement).value)} placeholder="How many matches?">
         </input>
@@ -156,6 +159,7 @@ export default function MemoryGame(){
                 current.value = null;
                 currentId.value = null;
                 if(correctGuesses.value === gameMatches.value){
+                  addPoints(gameMatches.value * 50);
                   resetGame();
                 }
               }

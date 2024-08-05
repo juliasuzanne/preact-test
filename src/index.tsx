@@ -13,9 +13,11 @@ import render from 'preact-render-to-string'
 import Riddler from './pages/React/Riddler.js';
 import ErrorBoundary from './pages/ErrorBoundary.js';
 import MemoryGame from './pages/MemoryGame.js';
+import createPointState from './pointsState';
 
 import './style.css';
 
+export const PointState = createContext(createPointState);
 export const AppState = createContext(createAppState); 
 
 export function App() {
