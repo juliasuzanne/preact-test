@@ -28,6 +28,8 @@ export function Home() {
 			<a href = "/crash">Crash me</a>
 			<br />
 			<a href = "/memory">Memory Game</a>
+			<br />
+			<a href = "/calculator">Calculator</a>
 			<section>
 				<Resource
 					title="Learn Preact"

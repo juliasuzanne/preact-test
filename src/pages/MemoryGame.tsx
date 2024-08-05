@@ -120,8 +120,7 @@ export default function MemoryGame(){
       <div className="container">
       {images.value.length === 0 ? <p>Loading...</p> : 
       images.value.map((image, i)=>{
-        return <div key={i} className="cards" height='300px' style={correctlyGot.value.includes(image.id) || prevId.value === i || currentId.value === i? `background-image: url(${image.url})`: "background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjNHlCAhNnlQ4pCIluYMG_9EPMnBMPrVovkg&s')" }onClick={()=> {
-          
+        return <div key={i} className="cards" height='300px' style={correctlyGot.value.includes(image.id) || prevId.value === i || currentId.value === i? `background-image: url(${image.url})`: "background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjNHlCAhNnlQ4pCIluYMG_9EPMnBMPrVovkg&s')" }onClick={()=> {  
           console.log(i, image.id);
           console.log("CORRECT: " + correctlyGot);
           if(prev.value === null){

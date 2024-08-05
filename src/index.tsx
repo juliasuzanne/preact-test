@@ -14,6 +14,7 @@ import Riddler from './pages/React/Riddler.js';
 import ErrorBoundary from './pages/ErrorBoundary.js';
 import MemoryGame from './pages/MemoryGame.js';
 import createPointState from './pointsState';
+import { Calculator } from './pages/Calculator.js';
 
 import './style.css';
 
@@ -29,6 +30,8 @@ export function App() {
 			<main>
 				<Router>
 					<Route path="/memory" component={MemoryGame} />
+					<Route path="/calculator" component={Calculator} />
+
 					<Route path="/" component={Home} />
 					<Route path="/crash" component={CrashingComponent} />
 					<Route path='/profile' component={Profile} />
