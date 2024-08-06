@@ -2,7 +2,6 @@ import { useSignal } from "@preact/signals";
 import './calculator.css'
 
 export function Calculator(){
-  const currentDigit = useSignal(0);
   const currentNum = useSignal(null);
   const buttonNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9]
   const firstEntry = useSignal(true);
@@ -44,8 +43,15 @@ export function Calculator(){
 }
 
   function handleAddOperand(operand:string){
-    prevOperator.value = operator.value;
-    operator.value = operand;
+    if(operator.value !=='' && operator.value !==null){
+      prevOperator.value = operator.value;
+      operator.value = operand;
+    }
+    else{
+      prevOperator.value = operand;
+      operator.value = operand;
+    }
+
 
     console.log(currentNum.value);
     console.log(previousNum.value);

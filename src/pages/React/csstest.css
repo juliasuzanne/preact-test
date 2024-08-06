@@ -1,0 +1,102 @@
+.tea-container{
+  background-color: black;
+  color: grey;
+}
+
+.tea-logo{
+  height: 50px;
+  padding: 10px;
+  
+
+}
+
+
+.teacozy-header{
+  display:flex;
+  justify-content: flex-end;
+  top: 0;
+  position: fixed;
+  left: 0px;
+
+}
+
+.nav-buttons{
+  display:flex;
+  justify-content: flex-end;
+  position: fixed;
+  right: 0;
+  font-size: 1.5em;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.teacozy-header a {  
+  color: grey;
+  justify-content: flex-end; 
+  padding-left: 20px;
+}
+
+footer{
+  position: fixed;
+  bottom: 10px;
+  width: 100vw;
+  text-align: left;
+  left: 0px;
+
+}
+
+footer h2{
+  padding-left: 20px;
+  font-weight: 800;
+}
+
+.tea-main{
+  background-image: url("/img-mission-background.jpg");
+  height: 700px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+
+}
+
+.location-img{
+  width: 300px;
+  height: auto;
+  margin: 0;
+
+}
+
+.locations-container{
+  width: 1000px;
+  margin: 0 auto;
+
+}
+
+.location-img-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.location-title{
+  padding-top: 10px;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.location-blocks{
+  padding: 15px;
+  display:block;
+}
+
+.tea-title{
+  width: 100%;
+}
+.tea-titles{
+  background-color: black;
+  width: 100%;
+}

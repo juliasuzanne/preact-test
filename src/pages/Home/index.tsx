@@ -6,6 +6,7 @@ import { PointState } from '../..';
 import { useContext } from 'preact/hooks';
 
 export function Home() {
+  document.body.style.backgroundColor="white";
 
 	const {points} = useContext(PointState);
 
@@ -30,6 +31,8 @@ export function Home() {
 			<a href = "/memory">Memory Game</a>
 			<br />
 			<a href = "/calculator">Calculator</a>
+			<br />
+			<a href = "/csstest">CSS Test</a>
 			<section>
 				<Resource
 					title="Learn Preact"

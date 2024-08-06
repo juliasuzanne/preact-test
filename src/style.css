@@ -15,6 +15,7 @@
 
 body {
 	margin: 0;
+	background-color:white;
 }
 
 #app {
@@ -26,7 +27,6 @@ body {
 header {
 	display: flex;
 	justify-content: flex-end;
-	background-color: #673ab8;
 }
 
 header nav {
@@ -34,17 +34,9 @@ header nav {
 }
 
 header a {
-	color: #fff;
+	color: #000000;
 	padding: 0.75rem;
 	text-decoration: none;
-}
-
-header a.active {
-	background-color: #0005;
-}
-
-header a:hover {
-	background-color: #0008;
 }
 
 main {
@@ -72,7 +64,7 @@ main {
 
 .cards{
 	height: 300px;
-	width: 150px;
+	width: 200px;
 	background-color: black;
 	border-radius: 20px;
 	border: 3px solid black;
