@@ -1,9 +1,10 @@
 import { useSignal } from "@preact/signals";
+import './calculator.css'
 
 export function Calculator(){
   const currentDigit = useSignal(0);
   const currentNum = useSignal(null);
-  const buttonNumbers = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 0, '.']
+  const buttonNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9]
   const firstEntry = useSignal(true);
   const previousNum = useSignal(0);
   const prevOperator = useSignal('');
@@ -42,9 +43,10 @@ export function Calculator(){
 }
 
   function handleAddOperand(operand:string){
+    console.log(currentNum.value);
     prevOperator.value = operator.value;
     operator.value = operand;
-    if(currentNum.value !==null && currentNum.value !== '' && firstEntry.value === false){
+    if(currentNum.value !==null && currentNum.value !== '' && currentNum.value !==0 && firstEntry.value === false){
       switch(prevOperator.value){
         case('+'):
           currentNum.value = previousNum.value + parseFloat(currentNum.value);
@@ -64,7 +66,7 @@ export function Calculator(){
       previousNum.value = currentNum.value;
       currentNum.value = null;
     }
-    else if(firstEntry.value === true){
+    else if(firstEntry.value === true && currentNum.value !==null && currentNum.value !==''){
       firstEntry.value = false;
       previousNum.value = parseFloat(currentNum.value);
       currentNum.value = null;
@@ -87,38 +89,43 @@ export function Calculator(){
 
 
   return(
-    <div>
-      <h3>{previousNum.value}</h3>
-      <h3>{operator.value}</h3>
-      <h1>{currentNum.value}</h1>
+    <div class="calc-container">
+      <div class="screen">
+      <h3 className="previousNum">{previousNum.value}</h3>
+      <h3 className="operator">{operator.value}</h3>
+      <h1 className="currentNum">{currentNum.value}</h1>
+      </div>
+      <div className="numbers">
 
-      <button onClick={() => handleAddOperand('+')}>
+      <button class="calc-button" onClick={() => handleAddOperand('+')}>
         +
       </button>
-      <button onClick={() => handleAddOperand('-')}>
+      <button class="calc-button" onClick={() => handleAddOperand('-')}>
         -
       </button>
-      <button onClick={() => handleAddOperand('*')}>
+      <button class="calc-button" onClick={() => handleAddOperand('*')}>
         *
       </button>
-      <button onClick={() => handleAddOperand('/')}>
+      <button class="calc-button" onClick={() => handleAddOperand('/')}>
         /
       </button>
-      <button onClick={() => handleAddOperand('=')}>
-        =
-      </button>
-
+  
       {
         buttonNumbers.map((num)=>{
-          return<button onClick={()=> addToCurrentNum(num)}>{num}</button>
+          return<button class="calc-button" onClick={()=> addToCurrentNum(num)}>{num}</button>
         })
       }
-       <button onClick={goBackOne}>
+      <button class="calc-button" onClick={()=> addToCurrentNum('.')}>.</button>
+      <button class="calc-button"  onClick={goBackOne}>
         back
       </button>
-      <button onClick={clear}>
+      <button class="calc-button"  onClick={clear}>
         clear
       </button>
+      <button class="calc-button" onClick={() => handleAddOperand('=')}>
+        =
+      </button>
+      </div> 
 
     </div>
   )

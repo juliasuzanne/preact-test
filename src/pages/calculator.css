@@ -1,0 +1,43 @@
+.numbers{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.calc-container{
+  width: 40vw;
+  height: auto;
+  padding: 100px;
+  border-radius: 50px;
+  background-color: black;
+}
+
+.calc-button{
+  min-height: 5vh;
+  border-radius: 100px;
+  margin: 20px;
+  min-width: 5vw;
+  border: 2px solid grey;
+  font-size:2em;
+}
+
+.screen{
+  height: 400px;
+  background-color: green;
+  text-align: right;
+  padding: 20px 30px 10px 0px;
+  border-radius: 25px;
+}
+
+.previousNum{
+  font-size: 2em;
+
+}
+
+.currentNum{
+  font-size: 3em;
+
+}
+
+.operator{
+text-align: center;
+}
