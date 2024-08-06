@@ -42,9 +42,10 @@ export default function MemoryGame(){
   }
 
   function handleGetImages(){
+      const randomIndex = Math.random() * 50;
       axios.get(`https://thesisblog.fly.dev/photos.json`).then(
         (response) => {console.log(response.data);
-        images.value = (response.data.splice(0, gameMatches));
+        images.value = (response.data.splice(0 + randomIndex, gameMatches.value));
         images.value = ([...images.value, ...images.value]);
         console.log(images.value);
         shuffleImages();
@@ -117,6 +118,7 @@ export default function MemoryGame(){
     correctGuesses.value = 0;
     currentId.value = null;
     prevId.value = null;
+    handleGetImages();
 
   }
 
@@ -146,7 +148,7 @@ export default function MemoryGame(){
               currentId.value = null;
             }
             else{
-              expireTime.value = Date.now() + 1 * 1000;
+              expireTime.value = Date.now() + 3 * 1000;
               prev.value = image.id;
               prevId.value = i;
               currentId.value = null;
@@ -159,7 +161,7 @@ export default function MemoryGame(){
 
             }
             else{
-              expireTime.value = Date.now() + 1 * 1000;
+              expireTime.value = Date.now() + 3 * 1000;
               current.value = image.id;
               currentId.value = i;
 
@@ -174,7 +176,7 @@ export default function MemoryGame(){
                 currentId.value = null;
                 if(correctGuesses.value === gameMatches.value){
                   addPoints(gameMatches.value * 50);
-                  resetGame();
+                  setTimeout(()=>resetGame(), 2500)
                 }
               }
               else{
