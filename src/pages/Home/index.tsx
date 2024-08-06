@@ -37,6 +37,8 @@ export function Home() {
 			<a href = "/quiz">Quiz</a>
 			<br />
 			<a href = "/countries">Countries</a>
+			<br />
+			<a href = "/substring">Get Longest Substring</a>
 			<section>
 				<Resource
 					title="Learn Preact"

@@ -19,6 +19,7 @@ import CSSTest from './pages/React/CSSTest.js';
 import { Quiz } from './pages/Quiz/Quiz.js';
 import CountriesPage from './pages/CountriesPage.js';
 import CountriesPageAlt from './pages/CountriesPageAlt.js';
+import GetLongestSubstring from './pages/GetLongestSubstring.js';
 
 import './style.css';
 
@@ -38,6 +39,7 @@ export function App() {
 					<Route path="/csstest" component={CSSTest} />
 					<Route path ='/quiz' component={Quiz} />
 					<Route path ='/countries' component={CountriesPageAlt} />
+					<Route path ='/substring' component={GetLongestSubstring} />
 
 					<Route path="/" component={Home} />
 					<Route path="/crash" component={CrashingComponent} />
