@@ -17,6 +17,8 @@ import createPointState from './pointsState';
 import { Calculator } from './pages/Calculator.js';
 import CSSTest from './pages/React/CSSTest.js';
 import { Quiz } from './pages/Quiz/Quiz.js';
+import CountriesPage from './pages/CountriesPage.js';
+import CountriesPageAlt from './pages/CountriesPageAlt.js';
 
 import './style.css';
 
@@ -35,6 +37,7 @@ export function App() {
 					<Route path="/calculator" component={Calculator} />
 					<Route path="/csstest" component={CSSTest} />
 					<Route path ='/quiz' component={Quiz} />
+					<Route path ='/countries' component={CountriesPageAlt} />
 
 					<Route path="/" component={Home} />
 					<Route path="/crash" component={CrashingComponent} />

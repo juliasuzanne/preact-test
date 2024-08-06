@@ -35,6 +35,8 @@ export function Home() {
 			<a href = "/csstest">CSS Test</a>
 			<br />
 			<a href = "/quiz">Quiz</a>
+			<br />
+			<a href = "/countries">Countries</a>
 			<section>
 				<Resource
 					title="Learn Preact"
