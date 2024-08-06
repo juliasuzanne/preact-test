@@ -25,6 +25,7 @@ export default function MemoryGame(){
   const prevId = useSignal(null);
   const currentId = useSignal(null);
   const correctlyGot = useSignal([]);
+  const expireTime= useSignal(Date.now());
 
   if(numMatches.value < 11 && numMatches.value > 0){
     gameMatches.value = numMatches.value;
@@ -56,6 +57,21 @@ export default function MemoryGame(){
   }
 
   useEffect(handleGetImages, [images, gameMatches]);
+
+  useEffect(() => {
+    console.log(expireTime);
+    console.log(Date.now());
+    const timesUp = setTimeout(() => {
+      prev.value = null;
+      current.value = null;
+      prevId.value = null;
+      currentId.value = null;
+    }, expireTime.value - Date.now());
+
+    return () => {
+      clearTimeout(timesUp);
+    };
+  }, [prev.value, current.value]);
 
 
   type Image = {
@@ -128,14 +144,12 @@ export default function MemoryGame(){
               prev.value = null;
               prevId.value = null;
               currentId.value = null;
-
             }
             else{
+              expireTime.value = Date.now() + 1 * 1000;
               prev.value = image.id;
               prevId.value = i;
               currentId.value = null;
-
-
             }
           }
           else if(current.value ===null){
@@ -145,6 +159,7 @@ export default function MemoryGame(){
 
             }
             else{
+              expireTime.value = Date.now() + 1 * 1000;
               current.value = image.id;
               currentId.value = i;
 
