@@ -13,7 +13,6 @@ export function Calculator(){
   function goBackOne(){
     if(currentNum.value.length >= 1){
       currentNum.value = currentNum.value.substring(0, currentNum.value.length - 1);
-
     }
     }
 
@@ -29,23 +28,32 @@ export function Calculator(){
       }
     }
     else if(newNum === '.'){
-
-      if(!currentNum.value.includes('.')){
-        if(currentNum.value === null){
-          currentNum.value = ".";
-  
-        }
-        else{
-          currentNum.value = currentNum.value + '.';
+      if(currentNum.value === null){
+        currentNum.value = '';
       }
+        if(!currentNum.value.includes('.')){
+          if(currentNum.value === null){
+            currentNum.value = ".";
+          }
+          else{
+            currentNum.value = currentNum.value + '.';
+        }
+      
     }
   }
 }
 
   function handleAddOperand(operand:string){
-    console.log(currentNum.value);
     prevOperator.value = operator.value;
     operator.value = operand;
+
+    console.log(currentNum.value);
+    console.log(previousNum.value);
+    console.log(operator.value);
+    console.log(operand);
+    console.log("PREV OPERATOR:" + prevOperator.value);
+
+
     if(currentNum.value !==null && currentNum.value !== '' && currentNum.value !==0 && firstEntry.value === false){
       switch(prevOperator.value){
         case('+'):
@@ -60,22 +68,21 @@ export function Calculator(){
           case('/'):
           currentNum.value = previousNum.value / parseFloat(currentNum.value);
           break;
-          default: currentNum.value = 0;
+          default: currentNum.value = currentNum.value;
       }
       
       previousNum.value = currentNum.value;
       currentNum.value = null;
+      operator.value = '';
     }
     else if(firstEntry.value === true && currentNum.value !==null && currentNum.value !==''){
       firstEntry.value = false;
       previousNum.value = parseFloat(currentNum.value);
       currentNum.value = null;
-    }
-    if(operator.value === '='){
       operator.value = '';
-      currentNum.value = null;
 
     }
+
 
   }
 
@@ -92,8 +99,8 @@ export function Calculator(){
     <div class="calc-container">
       <div class="screen">
       <h3 className="previousNum">{previousNum.value}</h3>
-      <h3 className="operator">{operator.value}</h3>
-      <h1 className="currentNum">{currentNum.value}</h1>
+      <h3 className="operator">{operator.value} {currentNum.value}</h3>
+      {/* <h1 className="currentNum">{currentNum.value}</h1> */}
       </div>
       <div className="numbers">
 
