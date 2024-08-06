@@ -20,3 +20,5 @@ export const questions = ([
     trait: 'openness'
   },
 ])
+
+export type questionType = typeof questions[0];

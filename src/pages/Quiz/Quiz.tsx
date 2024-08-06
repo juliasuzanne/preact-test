@@ -1,6 +1,7 @@
 
 import { useSignal } from "@preact/signals"
-import { questions } from "./big5questions";
+import { questions, questionType } from "./big5questions";
+import Question from "./Question";
 
 export function Quiz(){
   const progress = useSignal();
@@ -51,10 +52,7 @@ export function Quiz(){
 
       <h3>Take the test below to find out how you score!</h3>
       {quizQs.value.map((q)=>
-      <div>
-        <p>{q.question}</p>
-        <p>{q.trait}</p>
-        </div>
+      <Question question={q} addToTrait={addTrait} />
       )}
 
 
