@@ -23,6 +23,7 @@ import GetLongestSubstring from './pages/GetLongestSubstring.js';
 import Interview2 from './pages/Interview2.jsx';
 import CountriesPageOther from './pages/CountriesPageOther.js';
 import Tabs from './pages/Profile/Tabs.js';
+import TrafficLight from './pages/Test/TrafficLight.js';
 
 import './style.css';
 
@@ -39,6 +40,7 @@ export function App() {
 				<Router>
 					<Route path="/memory" component={MemoryGame} />
 					<Route path="/tabs" component={Tabs} />
+					<Route path="/traffic" component={TrafficLight} />
 
 					<Route path="/calculator" component={Calculator} />
 					<Route path="/csstest" component={CSSTest} />
