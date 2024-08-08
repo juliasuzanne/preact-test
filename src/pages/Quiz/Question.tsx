@@ -12,13 +12,13 @@ export default function Question({question, addToTrait}){
       <button onClick={()=> {addToTrait(question.trait, -5), visible.value=true}}>
         Somewhat unlike me
       </button>
-      <button onClick={()=> {addToTrait(question.trait, 0)}}>
+      <button onClick={()=> {addToTrait(question.trait, 0), visible.value=true}}>
         Neither like me or unlike me
       </button>
-      <button onClick={()=> {addToTrait(question.trait, 5)}}>
+      <button onClick={()=> {addToTrait(question.trait, 5), visible.value=true}}>
         Somewhat like me
       </button>
-      <button onClick={()=> {addToTrait(question.trait, 10)}}>
+      <button onClick={()=> {addToTrait(question.trait, 10), visible.value=true}}>
         Very much like me
       </button>
       </div>

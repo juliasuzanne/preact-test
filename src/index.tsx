@@ -20,6 +20,9 @@ import { Quiz } from './pages/Quiz/Quiz.js';
 import CountriesPage from './pages/CountriesPage.js';
 import CountriesPageAlt from './pages/CountriesPageAlt.js';
 import GetLongestSubstring from './pages/GetLongestSubstring.js';
+import Interview2 from './pages/Interview2.jsx';
+import CountriesPageOther from './pages/CountriesPageOther.js';
+import Tabs from './pages/Profile/Tabs.js';
 
 import './style.css';
 
@@ -35,12 +38,14 @@ export function App() {
 			<main>
 				<Router>
 					<Route path="/memory" component={MemoryGame} />
+					<Route path="/tabs" component={Tabs} />
+
 					<Route path="/calculator" component={Calculator} />
 					<Route path="/csstest" component={CSSTest} />
 					<Route path ='/quiz' component={Quiz} />
-					<Route path ='/countries' component={CountriesPageAlt} />
+					<Route path ='/countries' component={CountriesPageOther} />
 					<Route path ='/substring' component={GetLongestSubstring} />
-
+					<Route path ='/interview2' component={Interview2} />
 					<Route path="/" component={Home} />
 					<Route path="/crash" component={CrashingComponent} />
 					<Route path='/profile' component={Profile} />

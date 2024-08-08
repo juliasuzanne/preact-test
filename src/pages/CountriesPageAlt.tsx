@@ -13,7 +13,7 @@ const FILTERABLE_CAPITALS = [
   "Reykjavik"
 ] as const;
 
-  type capital = (typeof FILTERABLE_CAPITALS)[number];
+  type Capital = (typeof FILTERABLE_CAPITALS)[number];
 
   interface Country{
     name:{
@@ -24,11 +24,11 @@ const FILTERABLE_CAPITALS = [
 
 
 const CountriesPageAlt = () => {
-  const selectedCountry = useSignal<capital>(`${FILTERABLE_CAPITALS[0]}`);
+  const selectedCountry = useSignal<Capital>(`${FILTERABLE_CAPITALS[0]}`);
   const country = useSignal<Country[]>();
   const countries = useSignal<Country[]>([]);
 
-  function getCountry(capital : capital){
+  function getCountry(capital : Capital){
       country.value = countries.value.filter((country)=> country.capital == `${capital}`);
       // console.log('COUNTRY' + country.value[0].name.common);
     }
@@ -52,8 +52,8 @@ const CountriesPageAlt = () => {
   <div><h1>React Interview</h1>
     <h2>Test</h2>
     <label>Select country by capital: </label>
-    <select onChange={(e)=> {selectedCountry.value = (e.target as HTMLTextAreaElement).value as capital; getCountry(selectedCountry.value)}}>
-      {FILTERABLE_CAPITALS.map((capital:capital)=>
+    <select onChange={(e)=> {selectedCountry.value = (e.target as HTMLTextAreaElement).value as Capital; getCountry(selectedCountry.value)}}>
+      {FILTERABLE_CAPITALS.map((capital:Capital)=>
         <option>
           {capital}
         </option>
