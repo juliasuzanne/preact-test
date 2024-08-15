@@ -41,21 +41,8 @@ export function Quiz(){
         What is your Big 5 personality type?
       </h1>
       <p>There are many types of personalities out there, and psychologists have worked on a model that I particularly like: the Big 5</p>
-      <p>The Big 5 Traits are:</p>
-      <ul>
-        <li>Agreeableness</li>      
-        <li>Openness</li>      
-        <li>Orderliness</li>       
-        <li>Neuroticism</li>  
-        <li>Extraversion</li>  
-      </ul>
 
-
-      <p>{traits.value.extraversion}</p>
-      <p>{traits.value.neuroticism}</p>
-      <p>{traits.value.contientiousness}</p>
-      <p>{traits.value.openness}</p>
-      <p>{traits.value.agreeableness}</p>
+      <p>{traits.value.extraversion}{traits.value.neuroticism}{traits.value.contientiousness}{traits.value.openness}{traits.value.agreeableness}</p>
 
       <h3>I am someone who...</h3>
       <Question question={quizQs.value[currentIndex.value]} addToTrait={addTrait} />
