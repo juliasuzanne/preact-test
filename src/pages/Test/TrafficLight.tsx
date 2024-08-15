@@ -40,11 +40,27 @@ export default function TrafficLight(){
   }, [currentColor.value]
   )
 
+  useEffect(()=>{
+    let newHour = new Date().getHours().toString();
+    let newMinutes = new Date().getMinutes().toString();
+    let newSeconds = new Date().getSeconds();
+    console.log(`${newHour}:${newMinutes}:${Math.floor(newSeconds)}`);
+  }
+  )
+
   return(
+    <div>
+      <div class="TL">
+      
+      </div>
+    
+
+
     <div className="traffic-container">
       <div className={currentColor.value === 'red'? 'red': 'circle'}></div>
       <div className={currentColor.value === 'yellow'? 'yellow': 'circle'}></div>
       <div className={currentColor.value === 'green'? 'green': 'circle'}></div>
+    </div>
     </div>
   )
 }

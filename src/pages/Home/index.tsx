@@ -45,6 +45,8 @@ export function Home() {
 			<a href = "/tabs">Tabs Test</a>
 			<br />
 			<a href = "/traffic">TrafficLight</a>
+			<br />
+			<a href = "/job">Job Board</a>
 			<section>
 				<Resource
 					title="Learn Preact"

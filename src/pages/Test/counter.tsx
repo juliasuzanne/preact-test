@@ -15,6 +15,7 @@ const increment2 = () =>{
   setCount2((prev)=> prev + 1);
 }
 
+
 return(
   <div>
     <h1>{count.value}</h1>
@@ -22,7 +23,7 @@ return(
       Add!
     </button>
     <h1>{count2}</h1>
-    <button onClick={increment2}>
+    <button id="button-click" onClick={increment2}>
       Add!
     </button>
     

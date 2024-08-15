@@ -39,7 +39,7 @@ const CountriesPage = () => {
   <div><h1>React Interview</h1>
     <h2>Test</h2>
     <label>Select country by capital: </label>
-    <select onChange={(e)=> {selectedCountry.value = (e.target as HTMLTextAreaElement).value as capital; getCountry(selectedCountry)}}>
+    <select onInput={(e)=> {selectedCountry.value = (e.target as HTMLTextAreaElement).value as capital; getCountry(selectedCountry)}}>
       {FILTERABLE_CAPITALS.map((capital:capital)=>
         <option>
           {capital}
