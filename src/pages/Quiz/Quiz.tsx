@@ -2,14 +2,17 @@
 import { useSignal } from "@preact/signals"
 import { questions, questionType } from "./big5questions";
 import Question from "./Question";
+import ProgressBar from "./ProgressBar";
 
 export function Quiz(){
   const progress = useSignal();
   const quizQs = useSignal(questions);
+  const currentIndex = useSignal(0);
+
   const traits = useSignal(
     {
       agreeableness: 0,
-      orderliness: 0,
+      contientiousness: 0,
       neuroticism: 0,
       extraversion: 0,
       openness: 0
@@ -27,6 +30,8 @@ export function Quiz(){
       ...traits.value,
       [traitToAdd]: traits.value[traitToAdd] + num
     }
+
+    currentIndex.value +=1;
     }
 
 
@@ -44,22 +49,17 @@ export function Quiz(){
         <li>Neuroticism</li>  
         <li>Extraversion</li>  
       </ul>
-      <button onClick={()=>addTrait('agreeableness', false, 10)}>Add 10 agreeable</button>
-      <button onClick={()=>addTrait('openness', false, 10)}>Add 10 openness</button>
 
 
       <p>{traits.value.extraversion}</p>
       <p>{traits.value.neuroticism}</p>
-      <p>{traits.value.orderliness}</p>
+      <p>{traits.value.contientiousness}</p>
       <p>{traits.value.openness}</p>
       <p>{traits.value.agreeableness}</p>
 
       <h3>I am someone who...</h3>
-      {quizQs.value.map((q)=>
-      <Question question={q} addToTrait={addTrait} />
-      )}
-
-
+      <Question question={quizQs.value[currentIndex.value]} addToTrait={addTrait} />
+      <ProgressBar totalProgress={quizQs.value.length} currentProgress={currentIndex}/>
 
     </div>
   )

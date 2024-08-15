@@ -35,3 +35,20 @@
   font-weight: 700;
 
 }
+
+.progressBar{
+  width: 80%;
+  height: 50px;
+  background-color: grey;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-top: 40px;
+
+}
+
+.progressBar2{
+  height: 50px;
+  background-color: rgb(18, 173, 80);
+  border-radius: 100px;
+
+}
