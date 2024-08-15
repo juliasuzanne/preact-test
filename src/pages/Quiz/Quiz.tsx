@@ -17,7 +17,11 @@ export function Quiz(){
   )
 
   
-  function addTrait(trait: string, num: number){
+  function addTrait(trait: string, reverse: boolean, num: number){
+    if(reverse){
+      num = -num;
+    }
+
     let traitToAdd = trait;
     traits.value = {
       ...traits.value,
@@ -40,8 +44,8 @@ export function Quiz(){
         <li>Neuroticism</li>  
         <li>Extraversion</li>  
       </ul>
-      <button onClick={()=>addTrait('agreeableness', 10)}>Add 10 agreeable</button>
-      <button onClick={()=>addTrait('openness', 10)}>Add 10 openness</button>
+      <button onClick={()=>addTrait('agreeableness', false, 10)}>Add 10 agreeable</button>
+      <button onClick={()=>addTrait('openness', false, 10)}>Add 10 openness</button>
 
 
       <p>{traits.value.extraversion}</p>
@@ -50,7 +54,7 @@ export function Quiz(){
       <p>{traits.value.openness}</p>
       <p>{traits.value.agreeableness}</p>
 
-      <h3>Take the test below to find out how you score!</h3>
+      <h3>I am someone who...</h3>
       {quizQs.value.map((q)=>
       <Question question={q} addToTrait={addTrait} />
       )}
