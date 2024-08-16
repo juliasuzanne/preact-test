@@ -64,6 +64,7 @@ export function Home() {
 					href="https://vitejs.dev"
 				/>
 			</section>
+			
 		</div>
 	);
 }

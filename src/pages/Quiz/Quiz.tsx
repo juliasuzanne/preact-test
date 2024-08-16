@@ -49,9 +49,11 @@ export function Quiz(){
       <h1>
         What is your Big 5 personality type?
       </h1>
-      <p>There are many types of personalities out there, and psychologists have worked on a model that I particularly like: the Big 5</p>
+      <p>I like personality tests. Sure, interest in them can be due to an ego driven interest in the self. But I find they can also be useful tools for self reflection and understanding others.</p>
 
-      <p>EX {traits.value.extraversion} NE {traits.value.neuroticism} CO {traits.value.contientiousness} OP {traits.value.openness} AG {traits.value.agreeableness}</p>
+      <h2>Reflect on the statements below to the best of your ability, and then have your results revealed! No sign up, data mining, or payment involved.</h2>
+
+      {/* <p>EX {traits.value.extraversion} NE {traits.value.neuroticism} CO {traits.value.contientiousness} OP {traits.value.openness} AG {traits.value.agreeableness}</p> */}
 
       <h3 hidden={visible.value}>I am someone who...</h3>
       <Question  show={visible.value} question={quizQs.value[currentIndex.value]} addToTrait={addTrait} />
