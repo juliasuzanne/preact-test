@@ -1,9 +1,9 @@
 import { useSignal } from "@preact/signals"
 import './questions.css';
-export default function Question({question, addToTrait}){
+export default function Question({question, show, addToTrait}){
 
   return(
-    <div className="button_quiz">
+    <div hidden ={show} className="button_quiz">
       <p class="buttonHeader">{question.question}</p>
       <div class="buttons">
       <button onClick={()=> {addToTrait(question.trait, question.reverse, 1)}}>

@@ -2,10 +2,13 @@
 import { useSignal } from "@preact/signals"
 import { questions, questionType } from "./big5questions";
 import Question from "./Question";
+import Results from "./Results";
 import ProgressBar from "./ProgressBar";
+import { Chart } from "chart.js";
+import { NewCharts } from "./Chart";
 
 export function Quiz(){
-  const progress = useSignal();
+  const visible = useSignal(false);
   const quizQs = useSignal(questions);
   const currentIndex = useSignal(0);
 
@@ -31,7 +34,13 @@ export function Quiz(){
       [traitToAdd]: traits.value[traitToAdd] + num
     }
 
-    currentIndex.value +=1;
+    if(currentIndex.value < quizQs.value.length -1){
+      currentIndex.value +=1;
+    }
+    else{
+      console.log('test');
+      visible.value = true;
+    }
     }
 
 
@@ -42,11 +51,12 @@ export function Quiz(){
       </h1>
       <p>There are many types of personalities out there, and psychologists have worked on a model that I particularly like: the Big 5</p>
 
-      <p>{traits.value.extraversion}{traits.value.neuroticism}{traits.value.contientiousness}{traits.value.openness}{traits.value.agreeableness}</p>
+      <p>EX {traits.value.extraversion} NE {traits.value.neuroticism} CO {traits.value.contientiousness} OP {traits.value.openness} AG {traits.value.agreeableness}</p>
 
-      <h3>I am someone who...</h3>
-      <Question question={quizQs.value[currentIndex.value]} addToTrait={addTrait} />
-      <ProgressBar totalProgress={quizQs.value.length} currentProgress={currentIndex}/>
+      <h3 hidden={visible.value}>I am someone who...</h3>
+      <Question  show={visible.value} question={quizQs.value[currentIndex.value]} addToTrait={addTrait} />
+      <ProgressBar show={visible.value} totalProgress={quizQs.value.length} currentProgress={currentIndex}/>
+      <Results show={!visible.value} traits={traits} />
 
     </div>
   )
