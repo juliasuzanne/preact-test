@@ -22,9 +22,10 @@ export default function Results({traits, show}){
         <PolarArea
           data={{
             labels: ['Agreeable', 'Open', "Neurotic",'Contientious', 'Extraverted'],
+  
             datasets: [
               {
-                label: "Count",
+                label: "You Scored",
                 data: [`${((traits.value.agreeableness+15)/36).toFixed(2)}`, `${((traits.value.openness+2)/40).toFixed(2)}`, `${((traits.value.neuroticism+10)/32).toFixed(2)}`, `${((traits.value.contientiousness +15)/36).toFixed(2)}`, `${((traits.value.extraversion+10)/32).toFixed(2)}`],
                 backgroundColor: [
                   "blue",
@@ -33,18 +34,31 @@ export default function Results({traits, show}){
                   "orange",
                   "pink",
                 ],
-                borderRadius: 5,
+                borderRadius: 10,
               },
             ],
+         
           }}
+      
           options={{
+            scale: {
+              min: .05,
+              max: .95,
+              ticks: {
+                  stepSize: .1,
+              }
+          },
+            
             plugins: {
+             
               title: {
                 text: "Your Big 5 Results",
               },
             },
           }}
-        />
+          o
+
+           />
       </div>
 
     </div>
