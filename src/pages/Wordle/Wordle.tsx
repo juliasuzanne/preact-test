@@ -1,14 +1,16 @@
 import { useSignal } from "@preact/signals";
 import {words} from './words';
+import {answers} from './answers'
 import Guess from "./Guess";
 
 export default function Wordle(){
-  const newIndex = Math.floor(Math.random() * words.length -1)
-  const word = useSignal(words[newIndex])
+  const newIndex = Math.floor(Math.random() * answers.length -1)
+  const word = useSignal(answers[newIndex])
+  const done = useSignal(false);
   const currentGuess = useSignal('');
   const currentGuessCount = useSignal(0);
-  const guessesAccuracy = useSignal<string[]>(['rrrrr', 'rrrrr', 'rrrrr', 'rrrrr', 'rrrrr']);
-  const guesses = useSignal(['     ', '     ', '     ', '     ', '     ']);
+  const guessesAccuracy = useSignal<string[]>(['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx']);
+  const guesses = useSignal(['     ', '     ', '     ', '     ', '     ' , '     ']);
   const currentError = useSignal('');
 
   function makeCaseSensitive(word: string){
@@ -21,7 +23,7 @@ export default function Wordle(){
 
   const checkGuess = () => {
     console.log('case sensitive: ' + makeCaseSensitive(currentGuess.value));
-   
+  
     if(guesses.value.includes(currentGuess.value)){
       currentError.value = "Already Guessed!";
       console.log('already guessed!');
@@ -50,9 +52,26 @@ export default function Wordle(){
             }
           }
           guessesAccuracy.value[currentGuessCount.value] = newAccuracyTracker;
-          currentGuess.value = '';
-          currentError.value = 'not quite...';
-          currentGuessCount.value++;
+          if(word.value === currentGuess.value){
+            done.value = true;
+            currentError.value = "You got it!";
+            currentGuess.value = '';
+
+          }
+          else{
+            currentError.value = 'not quite...';
+            currentGuessCount.value++;
+            if(currentGuessCount.value > 5){
+              currentError.value = 'You lose : ('
+              done.value = true;
+              setTimeout(()=>resetGame(), 1200);
+              
+
+            }
+            currentGuess.value = '';
+
+          }
+     
         }
         else{
           currentError.value = "Not a valid word!"
@@ -70,23 +89,33 @@ export default function Wordle(){
 
   }
 
+  function resetGame(){
+    let newIndex = Math.floor(Math.random() * answers.length -1)
+    word.value = (answers[newIndex])
+    currentGuess.value = '';
+    currentGuessCount.value = 0;
+    guessesAccuracy.value = ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'];
+    guesses.value = ['     ', '     ', '     ', '     ', '     ',  '     '];
+    currentError.value = '';
+    done.value = false;
+
+
+  }
+
   return(
     <div>
-      {word.value}
       <br>
       </br>
       {guesses.value.map((guess, i)=>{
         return <Guess guess={guess} guessAccuracy={guessesAccuracy.value[i]}/>
       })}
-
-      <Guess guess='     ' guessAccuracy='rrrrr'/>
-
-
       <br></br>
-      {currentGuess.value}
+      {/* <h1>{currentGuess.value}</h1> */}
       <br></br>
-      <input value={currentGuess.value} onChange= { (e)=> currentGuess.value =(e.target as HTMLTextAreaElement).value}></input>
-      <button onClick={(e) => {e.preventDefault(); checkGuess()}}>GUESS</button>
+  
+      <input maxLength={5} className="guessSpace" disabled={done.value} value={currentGuess.value} onChange= { (e)=> currentGuess.value =(e.target as HTMLTextAreaElement).value}></input>
+      <br></br>
+      <button onClick={(e) => {e.preventDefault(); checkGuess(); console.log(currentGuess.value)}}>GUESS</button>
       <p>{currentError.value}</p>
     </div>
 
