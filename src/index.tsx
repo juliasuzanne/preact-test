@@ -27,6 +27,7 @@ import TrafficLight from './pages/Test/TrafficLight.js';
 import JobBoard from './pages/Test/JobBoard.js';
 
 import './style.css';
+import Wordle from './pages/Wordle/Wordle.js';
 
 export const PointState = createContext(createPointState);
 export const AppState = createContext(createAppState); 
@@ -43,6 +44,7 @@ export function App() {
 					<Route path="/tabs" component={Tabs} />
 					<Route path="/traffic" component={TrafficLight} />
 					<Route path="/job" component={JobBoard} />
+					<Route path="/wordle" component={Wordle} />
 
 					<Route path="/calculator" component={Calculator} />
 					<Route path="/csstest" component={CSSTest} />

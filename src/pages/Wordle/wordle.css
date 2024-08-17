@@ -1,0 +1,36 @@
+.letterBlock{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+grid-template-rows: 1fr;
+column-gap: 5px;
+background-color: white;
+justify-items: center;
+padding-bottom: 10px;
+}
+
+.letter{
+  width: 50px;
+  height: 50px;
+
+  font-size: 2rem;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 3px black solid;
+
+}
+
+.r{
+background-color: rgb(144, 143, 143);
+/* box-shadow: inset 1px 1px 5px 5px rgb(147, 10, 10); */
+}
+
+.y{
+  background-color: yellow;
+
+}
+
+.g{
+  background-color: green;
+
+}

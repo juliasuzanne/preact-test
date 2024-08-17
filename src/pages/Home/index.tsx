@@ -47,6 +47,8 @@ export function Home() {
 			<a href = "/traffic">TrafficLight</a>
 			<br />
 			<a href = "/job">Job Board</a>
+			<br />
+			<a href = "/wordle">Wordle</a>
 			<section>
 				<Resource
 					title="Learn Preact"
